@@ -298,6 +298,7 @@ class SeaSurf(object):
                 e2 += f' bad compare of {request_csrf_token} and {server_csrf_token}'
             error = u'Forbidden ({0}): {1}'.format(*error)
             current_app.logger.warning(error)
+            current_app.logger.warning(e2)
             raise Forbidden(description=REASON_BAD_TOKEN)
 
     def _should_use_token(self, view_func):
