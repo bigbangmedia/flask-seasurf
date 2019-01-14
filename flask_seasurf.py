@@ -294,7 +294,7 @@ class SeaSurf(object):
                 e2 += 'request_csrf_token is None'
             if server_csrf_token is None:
                 e2 += ' server_csrf_token is None'
-            if not safe_str_cmp(request_csrf_token, server_csrf_token):
+            if not some_none and not safe_str_cmp(request_csrf_token, server_csrf_token):
                 e2 += f' bad compare of {request_csrf_token} and {server_csrf_token}'
             error = u'Forbidden ({0}): {1}'.format(*error)
             current_app.logger.warning(error)
